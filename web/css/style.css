@@ -1,0 +1,107 @@
+@import 'standards.css';
+
+* {
+	text-align: justify;
+}
+
+#document {
+	margin: 2% 4%;
+}
+
+#document * {
+	padding: 0.25%;
+}
+
+#document h1 {
+	font-size: 200%;
+}
+
+#document h2 {
+	font-size: 125%;
+}
+
+#document em {
+	font-style: italic;
+}
+
+#document a {
+	color: #666;
+	text-decoration: none;
+}
+
+#document .content {
+	border: 1px solid #666;
+	float: left;
+	margin: 2% 0;
+	padding: 0;
+	width: 100%;
+}
+
+#document .content dt {
+	clear: left;
+	float: left;
+	padding: 0;
+	width: 8%;
+}
+
+#document .content dd {
+	float: left;
+	padding: 0;
+	width: 91%;
+}
+
+#document .content input, #document .content select, #document .content textarea {
+	border: 1px solid #999;
+	padding: 0;
+}
+
+#document .content .head {
+	background-color: #777;
+	color: #fff;
+}
+
+#document .content .head, #document .content .even, #document .content .odd {
+	height: 2em;
+	padding: 0.25%;
+}
+
+#document .content .even {
+	background-color: #eee;
+}
+
+#document .content .odd {
+	background-color: #ddd;
+}
+
+#document .content .number {
+	text-align: center;
+	width: 4%;
+}
+
+#document .content .option {
+	width: 8%;
+}
+
+#document .content .data {
+	clear: both;
+	font-weight: bold;
+}
+
+#document .content .description {
+	font-size: 75%;
+	font-weight: normal;
+	padding: 0;
+}
+
+#document .content .highlight {
+	background-color: #fff;
+	border: 1px solid #999;
+}
+
+#message {
+	background-color: #eee;
+	border: 1px solid #999;
+	font-weight: bold;
+	margin: 2% 0;
+	padding: 0.5%;
+}
