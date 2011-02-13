@@ -16,49 +16,28 @@
 			</h2>
 			<dl class="content">
 				<dt class="head">
-					&nbsp;
+					Field
 				</dt>
 				<dd class="head">
-					Error
+					Value
 				</dd>
-				<dt class="even">
-					Type
+<? $fields = array('Type', 'Message'); if ($this->getApplication()->getConfiguration('debugMode')) $fields = array_merge($fields, array('Details', 'Trace')); ?>
+<? foreach ($fields as $n => $field): ?>
+				<dt class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
+					<? echo $field; ?>
 				</dt>
-				<dd class="even">
-					<? echo $Error->getType(); ?>
-
-				</dd>
-<? if ($Error->getMessage()): ?>
-				<dt class="odd">
-					Message
-				</dt>
-				<dd class="odd">
-					<? echo $Error->getMessage(); ?>
-
-				</dd>
-<? endif; ?>
-<? if ($this->getApplication()->getConfiguration('debugMode')): ?>
-<? if ($Error->getDetails()): ?>
-				<dt class="even">
-					Details
-				</dt>
-				<dd class="even">
-					<? print_r($Error->getDetails()); ?>
-
-				</dd>
-<? endif; ?>
-<? if ($Error->getTrace()): ?>
-				<dt class="odd">
-					Trace
-				</dt>
-				<dd class="odd">
+				<dd class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
+					<? $getter = 'get' . $field; ?>
+					<? if ($field != 'Trace'): ?>
+					<? print_r($Error->$getter()); ?>
+					<? else: ?>
 					<div class="highlight">
-<? var_dump($Error->getTrace()); ?>
-
+						<? var_dump($Error->$getter()); ?>
 					</div>
+					<? endif; ?>
+
 				</dd>
-<? endif; ?>
-<? endif; ?>
+<? endforeach; ?>
 			</dl>
 		</div>
 	</body>

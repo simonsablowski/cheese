@@ -13,8 +13,16 @@ body {
 	width: 1000px;
 }
 
-#document h1, #document h2, #document table th, #document table td, #document dt, #document dd  {
-	padding: 6px;
+#document h1, #document h2  {
+	padding-bottom: 6px;
+}
+
+#document table th, #document table td, #document dt, #document dd  {
+	padding: 6px 6px 9px;
+}
+
+#document .last {
+	padding-bottom: 18px;
 }
 
 #document h1 {
@@ -37,7 +45,7 @@ body {
 #document .content {
 	border: 1px solid #ccc;
 	float: left;
-	margin: 12px 0;
+	margin: 18px 0;
 	padding: 0;
 	width: 100%;
 }
@@ -99,13 +107,13 @@ body {
 #document .content .highlight {
 	background-color: #fff;
 	border: 1px solid #999;
-	padding: 6px;
+	padding: 6px 6px 9px;
 }
 
 #message {
 	background-color: #f6f6f6;
 	border: 1px solid #ccc;
 	font-weight: bold;
-	margin: 12px 0;
-	padding: 12px;
+	margin: 36px 0;
+	padding: 12px 12px 18px;
 }

@@ -6,7 +6,7 @@
 				<fieldset>
 					<dl class="content">
 						<dt class="head">
-							&nbsp;
+							Field
 						</dt>
 						<dd class="head">
 							Value
@@ -23,10 +23,10 @@
 <? endswitch; ?>
 						</dd>
 <? endforeach; ?>
-						<dt class="<? echo $n % 2 ? 'even' : 'odd'; ?>">
+						<dt class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
 							&nbsp;
 						</dt>
-						<dd class="<? echo $n % 2 ? 'even' : 'odd'; ?>">
+						<dd class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
 							<input type="submit" name="submit" value="Submit"/>
 						</dd>
 					</dl>

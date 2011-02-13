@@ -14,28 +14,28 @@
 						</th>
 <? endforeach; ?>
 						<th class="option">
-							Update
+							&nbsp;
 						</th>
 						<th class="option">
-							Delete
+							&nbsp;
 						</th>
 					</tr>
 				</thead>
 				<tbody class="body">
 <? foreach ($Objects as $n => $Object): ?>
 					<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
-						<td class="number">
+						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>number">
 							<? echo $n + 1; ?>
 						</td>
 <? foreach ($Fields as $n => $Field): ?>
-						<td class="data">
+						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>data">
 							<? echo $Object->getData($Field->getName()); ?>
 						</td>
 <? endforeach; ?>
-						<td class="option">
+						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
 							<a href="update/<? echo $Object->getId(); ?>" title="Update">Update</a>
 						</td>
-						<td class="option">
+						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
 							<a href="delete/<? echo $Object->getId(); ?>" title="Delete">Delete</a>
 						</td>
 					</tr>
