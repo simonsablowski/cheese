@@ -16,13 +16,13 @@
 			</h2>
 			<dl class="content">
 				<dt class="head">
-					Description
+					&nbsp;
 				</dt>
 				<dd class="head">
-					&nbsp;
+					Error
 				</dd>
 				<dt class="even">
-					Type:
+					Type
 				</dt>
 				<dd class="even">
 					<? echo $Error->getType(); ?>
@@ -30,7 +30,7 @@
 				</dd>
 <? if ($Error->getMessage()): ?>
 				<dt class="odd">
-					Message:
+					Message
 				</dt>
 				<dd class="odd">
 					<? echo $Error->getMessage(); ?>
@@ -40,7 +40,7 @@
 <? if ($this->getApplication()->getConfiguration('debugMode')): ?>
 <? if ($Error->getDetails()): ?>
 				<dt class="even">
-					Details:
+					Details
 				</dt>
 				<dd class="even">
 					<? print_r($Error->getDetails()); ?>
@@ -49,7 +49,7 @@
 <? endif; ?>
 <? if ($Error->getTrace()): ?>
 				<dt class="odd">
-					Trace:
+					Trace
 				</dt>
 				<dd class="odd">
 					<div class="highlight">

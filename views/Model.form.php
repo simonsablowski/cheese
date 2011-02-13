@@ -9,11 +9,11 @@
 							&nbsp;
 						</dt>
 						<dd class="head">
-							&nbsp;
+							Value
 						</dd>
 <? foreach ($Fields as $n => $Field): ?>
 						<dt class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
-							<? echo $Field->getLabel(); ?>:
+							<? echo $Field->getLabel(); ?>
 						</dt>
 						<dd class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
 <? switch ($Field->getType()): ?>

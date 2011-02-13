@@ -9,7 +9,7 @@
 							&nbsp;
 						</td>
 <? foreach ($Fields as $n => $Field): ?>
-						<th class="data">
+						<th>
 							<? echo $Field->getLabel(); ?>
 						</th>
 <? endforeach; ?>
