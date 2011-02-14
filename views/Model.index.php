@@ -1,6 +1,6 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<a href="index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
+				<a href="<? echo $this->getConfiguration('basePath') . $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
 			</h1>
 			<table class="content">
 				<thead class="head">
@@ -33,10 +33,10 @@
 						</td>
 <? endforeach; ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="update/<? echo $Object->getId(); ?>" title="Update">Update</a>
+							<a href="<? echo $this->getConfiguration('basePath') . $ObjectName; ?>/update/<? echo $Object->getId(); ?>" title="Update">Update</a>
 						</td>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="delete/<? echo $Object->getId(); ?>" title="Delete">Delete</a>
+							<a href="<? echo $this->getConfiguration('basePath') . $ObjectName; ?>/delete/<? echo $Object->getId(); ?>" title="Delete">Delete</a>
 						</td>
 					</tr>
 <? endforeach; ?>
