@@ -4,14 +4,12 @@ class FoodController extends CmsController {
 	public function getFields() {
 		$Fields = array();
 		
-		$Fields[] = new Field('title', 'Title');
+		$Fields[] = new TextField('title', 'Title');
 		
-		$Status = new Field('status', 'Status', 'FieldOptions');
-		$FieldOptionsStatus = array();
-		$FieldOptionsStatus[] = new FieldOption('active', 'Active', TRUE);
-		$FieldOptionsStatus[] = new FieldOption('deleted', 'Deleted');
-		$Status->setFieldOptions($FieldOptionsStatus);
-		$Fields[] = $Status;
+		$Options = array();
+		$Options[] = new Option('active', 'Active', TRUE);
+		$Options[] = new Option('deleted', 'Deleted');
+		$Fields[] = new OptionsField('status', 'Status', $Options);
 		
 		return $Fields;
 	}

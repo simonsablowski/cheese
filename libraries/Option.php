@@ -1,6 +1,6 @@
 <?php
 
-class FieldOption extends Application {
+class Option extends Application {
 	protected $name = NULL;
 	protected $label = NULL;
 	protected $default = FALSE;

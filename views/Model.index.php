@@ -3,7 +3,7 @@
 				<a href="<? echo $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
 			</h1>
 			<div class="options">
-				<a class="option" href="create" title="Create">Create</a>
+				<a class="option" href="<? echo $ObjectName; ?>/create" title="Create">Create</a>
 			</div>
 			<table class="content">
 				<thead class="head">
