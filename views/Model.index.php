@@ -1,6 +1,6 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<? echo $ObjectName; ?>
+				<a href="index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
 			</h1>
 			<table class="content">
 				<thead class="head">

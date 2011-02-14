@@ -1,6 +1,6 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<? echo ucfirst($mode); ?> <? echo $ObjectName; ?>
+				<a href="index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a> &raquo; <? echo ucfirst($mode); ?>
 			</h1>
 			<form action="<? echo sprintf('%s%s/%s', $this->getConfiguration('basePath'), $ObjectName, $mode != 'update' ? $mode : sprintf('%s/%d', $mode, $Object->getId())); ?>" method="post">
 				<fieldset>
