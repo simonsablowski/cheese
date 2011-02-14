@@ -2,11 +2,11 @@
 
 $configuration = array();
 
-$configuration['pathMother'] = 'D:/Webprojekte/nacho/';
+$configuration['pathMother'] = 'D:/Entwicklung/nacho/';
 
 $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
-$configuration['basePath'] = '/cheese/web/';
+$configuration['basePath'] = 'http://localhost/cheese/web/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],

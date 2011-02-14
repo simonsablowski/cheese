@@ -1,8 +1,9 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<a href="<? echo $this->getConfiguration('basePath') . $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a> &raquo; <? echo ucfirst($mode); ?>
+				<a href="<? echo $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a> &raquo; <? echo ucfirst($mode); ?>
+
 			</h1>
-			<form action="<? echo sprintf('%s%s/%s', $this->getConfiguration('basePath'), $ObjectName, $mode != 'update' ? $mode : sprintf('%s/%d', $mode, $Object->getId())); ?>" method="post">
+			<form action="<? echo sprintf('%s/%s', $ObjectName, $mode != 'update' ? $mode : sprintf('%s/%d', $mode, $Object->getId())); ?>" method="post">
 				<fieldset>
 					<dl class="content">
 						<dt class="head">
@@ -14,6 +15,7 @@
 <? foreach ($Fields as $n => $Field): ?>
 						<dt class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
 							<? echo $Field->getLabel(); ?>
+
 						</dt>
 						<dd class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
 <? switch ($Field->getType()): ?>

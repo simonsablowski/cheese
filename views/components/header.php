@@ -4,7 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta http-equiv="Content-Language" content="en"/>
 		<title>Nachos with Cheese</title>
-		<link href="<? echo $this->getConfiguration('basePath'); ?>css/style.css" rel="stylesheet" title="Default" type="text/css" />
+		<base href="<? echo $this->getConfiguration('basePath'); ?>"/>
+		<link href="css/style.css" rel="stylesheet" title="Default" type="text/css" />
 	</head>
 	<body>
 		<div id="document">
