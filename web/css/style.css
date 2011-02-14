@@ -42,6 +42,18 @@ body {
 	text-decoration: none;
 }
 
+#document .options {
+	background-color: #f6f6f6;
+	border: 1px solid #ccc;
+	float: right;
+}
+
+#document .options .option {
+	float: right;
+	padding: 6px 6px 9px;
+	width: 60px;
+}
+
 #document .content {
 	border: 1px solid #ccc;
 	float: left;
@@ -69,6 +81,9 @@ body {
 
 #document .content .head {
 	background-color: #777;
+}
+
+#document .content .head, #document .content .head a {
 	color: #fff;
 }
 
@@ -96,6 +111,18 @@ body {
 #document .content .data {
 	clear: both;
 	font-weight: bold;
+}
+
+#document .content .options {
+	background-color: transparent;
+	border: 0 none;
+	float: left;
+}
+
+#document .content .options .option {
+	float: left;
+	padding: 6px 6px 9px;
+	width: 60px;
 }
 
 #document .content .description {

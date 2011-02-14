@@ -2,6 +2,9 @@
 			<h1>
 				<a href="<? echo $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
 			</h1>
+			<div class="options">
+				<a class="option" href="create" title="Create">Create</a>
+			</div>
 			<table class="content">
 				<thead class="head">
 					<tr>
