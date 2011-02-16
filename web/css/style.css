@@ -10,6 +10,7 @@ body {
 
 #document {
 	margin: 24px auto;
+	position: relative;
 	width: 1000px;
 }
 
@@ -45,7 +46,9 @@ body {
 #document .options {
 	background-color: #f6f6f6;
 	border: 1px solid #ccc;
-	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 #document .options .option {
@@ -116,7 +119,7 @@ body {
 #document .content .options {
 	background-color: transparent;
 	border: 0 none;
-	float: left;
+	position: relative;
 }
 
 #document .content .options .option {
