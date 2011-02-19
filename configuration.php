@@ -27,9 +27,10 @@ $configuration['Localization'] = array(
 	'locale' => 'de_DE'
 );
 
-$configuration['defaultQuery'] = 'Food/index';
-
-$configuration['aliasQueries'] = array();
+$configuration['Request'] = array(
+	'defaultQuery' => 'Food/index',
+	'aliasQueries' => array()
+);
 
 $configuration['debugMode'] = TRUE;
 // $configuration['debugMode'] = FALSE;
