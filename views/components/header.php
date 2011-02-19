@@ -11,6 +11,6 @@
 		<div id="document">
 <? if (isset($message) && !empty($message)): ?>
 			<div id="message">
-				<? echo $message; ?>
+				<? echo $this->localize($message); ?>
 			</div>
 <? endif; ?>

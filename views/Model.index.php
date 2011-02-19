@@ -1,9 +1,9 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<a href="<? echo $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $ObjectName; ?></a>
+				<a href="<? echo $ObjectName; ?>/index" title="<? echo $this->localize($ObjectName); ?>"><? echo $this->localize($ObjectName); ?></a>
 			</h1>
 			<div class="options">
-				<a class="option" href="<? echo $ObjectName; ?>/create" title="Create">Create</a>
+				<a class="option" href="<? echo $ObjectName; ?>/create" title="<? echo $this->localize('Create'); ?>"><? echo $this->localize('Create'); ?></a>
 			</div>
 			<table class="content">
 				<thead class="head">
@@ -13,7 +13,7 @@
 						</td>
 <? foreach ($Fields as $n => $Field): ?>
 						<th>
-							<? echo $Field->getLabel(); ?>
+							<? echo $this->localize($Field->getLabel()); ?>
 
 						</th>
 <? endforeach; ?>
@@ -34,15 +34,19 @@
 						</td>
 <? foreach ($Fields as $n => $Field): ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>data">
+<? if ($Field instanceof OptionsField): ?>
+							<? echo $this->localize($Object->getData($Field->getName())); ?>
+<? else: ?>
 							<? echo $Object->getData($Field->getName()); ?>
+<? endif; ?>
 
 						</td>
 <? endforeach; ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="<? echo $ObjectName; ?>/update/<? echo $Object->getId(); ?>" title="Update">Update</a>
+							<a href="<? echo $ObjectName; ?>/update/<? echo $Object->getId(); ?>" title="<? echo $this->localize('Update'); ?>"><? echo $this->localize('Update'); ?></a>
 						</td>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="<? echo $ObjectName; ?>/delete/<? echo $Object->getId(); ?>" title="Delete">Delete</a>
+							<a href="<? echo $ObjectName; ?>/delete/<? echo $Object->getId(); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
 						</td>
 					</tr>
 <? endforeach; ?>

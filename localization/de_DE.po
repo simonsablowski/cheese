@@ -1,0 +1,35 @@
+msgid "Food"
+msgstr "Essen"
+
+msgid "Create"
+msgstr "Neu"
+
+msgid "Update"
+msgstr "Ändern"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "active"
+msgstr "aktiv"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Deleted"
+msgstr "Gelöscht"
+
+msgid "Field"
+msgstr "Feld"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Submit"
+msgstr "Absenden"
