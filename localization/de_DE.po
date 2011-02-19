@@ -1,14 +1,18 @@
-msgid "Food"
-msgstr "Essen"
+# CRUD
 
 msgid "Create"
 msgstr "Neu"
+
+msgid "Read"
+msgstr "Ansehen"
 
 msgid "Update"
 msgstr "Ändern"
 
 msgid "Delete"
 msgstr "Löschen"
+
+# Fields
 
 msgid "Title"
 msgstr "Titel"
@@ -33,3 +37,31 @@ msgstr "Wert"
 
 msgid "Submit"
 msgstr "Absenden"
+
+# Error
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Unfortunately,"
+msgstr "Unglücklicherweise"
+
+msgid "we encountered an error:"
+msgstr "ist ein Fehler aufgetreten:"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Trace"
+msgstr "Spur"
+
+# Food
+
+msgid "Food"
+msgstr "Essen"
