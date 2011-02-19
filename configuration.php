@@ -2,7 +2,7 @@
 
 $configuration = array();
 
-$configuration['pathMother'] = 'D:/Entwicklung/nacho/';
+$configuration['pathMother'] = 'D:/Webprojekte/nacho/';
 
 $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
@@ -20,6 +20,11 @@ $configuration['Database'] = array(
 	'name' => 'cheese',
 	'user' => 'root',
 	'password' => ''
+);
+
+$configuration['Localization'] = array(
+	'language' => 'de_DE',
+	'locale' => 'de_DE'
 );
 
 $configuration['defaultQuery'] = 'Food/index';
