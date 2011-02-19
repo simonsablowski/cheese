@@ -28,12 +28,16 @@
 				</dt>
 				<dd class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
 					<? $getter = 'get' . $field; ?>
+					<? if ($field != 'Details' && $field != 'Trace'): ?>
+					<? echo $this->localize($Error->$getter()); ?>
+					<? else: ?>
 					<? if ($field != 'Trace'): ?>
 					<? print_r($Error->$getter()); ?>
 					<? else: ?>
 					<div class="highlight">
 						<? var_dump($Error->$getter()); ?>
 					</div>
+					<? endif; ?>
 					<? endif; ?>
 
 				</dd>
