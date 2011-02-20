@@ -10,9 +10,11 @@
 							<tr>
 								<th class="field">
 									<? echo $this->localize('Field'); ?>
+
 								</th>
 								<th>
 									<? echo $this->localize('Field'); ?>
+
 								</th>
 							</tr>
 						</thead>
@@ -26,31 +28,32 @@
 								<td>
 <? if ($Field instanceof TextField): ?>
 <? if (is_null($Field->getLength()) || $Field->getLength() > 255): ?>
-							<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
+									<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
 <? else: ?>
-							<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;" maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"/>
+									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;" maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"/>
 <? endif; ?>
 <? elseif ($Field instanceof OptionsField): ?>
 <? if (count($Field->getOptions()) > 2): ?>
-							<select name="<? echo $Field->getName(); ?>">
+									<select name="<? echo $Field->getName(); ?>">
 <? foreach ($Field->getOptions() as $m => $Option): ?>
-								<option value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ''); ?>><? echo $this->localize($Option->getLabel()); ?></option>
+										<option value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ''); ?>><? echo $this->localize($Option->getLabel()); ?></option>
 <? endforeach; ?>
-							</select>
+									</select>
 <? else: ?>
-							<div class="options">
+									<div class="options">
 <? foreach ($Field->getOptions() as $m => $Option): ?>
-								<div class="option">
-									<input id="<? echo ($id = $Field->getName() . $Option->getName()); ?>" type="radio" name="<? echo $Field->getName(); ?>" value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($Option->isDefault() ? ' checked="checked"' : '')); ?>>
-									<label for="<? echo $id; ?>">
-										<? echo $this->localize($Option->getLabel()); ?>
-									</label>
-								</div>
+										<div class="option">
+											<input id="<? echo ($id = $Field->getName() . $Option->getName()); ?>" type="radio" name="<? echo $Field->getName(); ?>" value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($Option->isDefault() ? ' checked="checked"' : '')); ?>/>
+											<label for="<? echo $id; ?>">
+												<? echo $this->localize($Option->getLabel()); ?>
+
+											</label>
+										</div>
 <? endforeach; ?>
-							</div>
+									</div>
 <? endif; ?>
 <? elseif ($Field instanceof JsonEncodedField): ?>
-							<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
+									<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
 <? endif; ?>
 								</td>
 							</tr>

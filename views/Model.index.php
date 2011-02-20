@@ -44,6 +44,7 @@
 <? else: ?>
 							<? echo $Object->getData($Field->getName()); ?>
 <? endif; ?>
+
 						</td>
 <? endforeach; ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">

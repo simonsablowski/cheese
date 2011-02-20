@@ -10,18 +10,22 @@
 		<div id="document">
 			<h1>
 				<? echo $this->localize('Unfortunately,'); ?>
+
 			</h1>
 			<h2>
 				<? echo $this->localize('we encountered an error:'); ?>
+
 			</h2>
 			<table class="content">
 				<thead class="head">
 					<tr>
 						<th class="field">
 							<? echo $this->localize('Field'); ?>
+
 						</th>
 						<th>
 							<? echo $this->localize('Value'); ?>
+
 						</th>
 					</tr>
 				</thead>
@@ -31,20 +35,21 @@
 					<tr class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
 						<td class="field">
 							<? echo $this->localize($field); ?>
+
 						</td>
 						<td>
-							<? $getter = 'get' . $field; ?>
-							<? if ($field != 'Details' && $field != 'Trace'): ?>
+<? $getter = 'get' . $field; ?>
+<? if ($field != 'Details' && $field != 'Trace'): ?>
 							<? echo $this->localize($Error->$getter()); ?>
-							<? else: ?>
-							<? if ($field != 'Trace'): ?>
+<? else: ?>
+<? if ($field != 'Trace'): ?>
 							<? print_r($Error->$getter()); ?>
-							<? else: ?>
+<? else: ?>
 							<div class="highlight">
 								<? var_dump($Error->$getter()); ?>
 							</div>
-							<? endif; ?>
-							<? endif; ?>
+<? endif; ?>
+<? endif; ?>
 
 						</td>
 					</tr>
