@@ -36,10 +36,14 @@
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>data">
 <? if ($Field instanceof OptionsField): ?>
 							<? echo $this->localize($Object->getData($Field->getName())); ?>
+<? elseif ($Field instanceof JsonEncodedField): ?>
+<? $this->displayView('components/StdObject.php', array(
+	'StdObject' => $Field->decode($Object->getData($Field->getName())),
+	'indent' => 7
+)); ?>
 <? else: ?>
 							<? echo $Object->getData($Field->getName()); ?>
 <? endif; ?>
-
 						</td>
 <? endforeach; ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">

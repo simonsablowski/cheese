@@ -18,7 +18,7 @@ body {
 	padding-bottom: 6px;
 }
 
-#document table th, #document table td, #document dt, #document dd  {
+#document table th, #document table td  {
 	padding: 6px 6px 9px;
 }
 
@@ -65,16 +65,9 @@ body {
 	width: 100%;
 }
 
-#document .content dt {
-	clear: left;
-	float: left;
+#document .content .field {
 	padding-left: 24px;
 	width: 90px;
-}
-
-#document .content dd {
-	float: left;
-	width: 868px;
 }
 
 #document .content input, #document .content select, #document .content textarea {
@@ -88,10 +81,6 @@ body {
 
 #document .content .head, #document .content .head a {
 	color: #fff;
-}
-
-#document .content .head, #document .content .even, #document .content .odd {
-	height: 17px;
 }
 
 #document .content .even {
@@ -138,6 +127,11 @@ body {
 	background-color: #fff;
 	border: 1px solid #999;
 	padding: 6px 6px 9px;
+}
+
+#document .content .decoded  th, #document .content .decoded  td {
+	font-weight: normal;
+	padding: 0 9px;
 }
 
 #message {

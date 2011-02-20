@@ -6,10 +6,10 @@ class FoodController extends CmsController {
 		
 		$Fields[] = new TextField('title', 'Title');
 		
-		$Options = array();
-		$Options[] = new Option('active', 'Active', TRUE);
-		$Options[] = new Option('deleted', 'Deleted');
-		$Fields[] = new OptionsField('status', 'Status', $Options);
+		$Fields[] = new OptionsField('status', 'Status', array(
+			new Option('active', 'Active', TRUE),
+			new Option('deleted', 'Deleted')
+		));
 		
 		return $Fields;
 	}

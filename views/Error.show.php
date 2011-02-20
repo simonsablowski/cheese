@@ -14,35 +14,43 @@
 			<h2>
 				<? echo $this->localize('we encountered an error:'); ?>
 			</h2>
-			<dl class="content">
-				<dt class="head">
-					<? echo $this->localize('Field'); ?>
-				</dt>
-				<dd class="head">
-					<? echo $this->localize('Value'); ?>
-				</dd>
+			<table class="content">
+				<thead class="head">
+					<tr>
+						<th class="field">
+							<? echo $this->localize('Field'); ?>
+						</th>
+						<th>
+							<? echo $this->localize('Value'); ?>
+						</th>
+					</tr>
+				</thead>
+				<tbody class="body">
 <? $fields = array('Type', 'Message'); if ($this->getApplication()->getConfiguration('debugMode')) $fields = array_merge($fields, array('Details', 'Trace')); ?>
 <? foreach ($fields as $n => $field): ?>
-				<dt class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
-					<? echo $this->localize($field); ?>
-				</dt>
-				<dd class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
-					<? $getter = 'get' . $field; ?>
-					<? if ($field != 'Details' && $field != 'Trace'): ?>
-					<? echo $this->localize($Error->$getter()); ?>
-					<? else: ?>
-					<? if ($field != 'Trace'): ?>
-					<? print_r($Error->$getter()); ?>
-					<? else: ?>
-					<div class="highlight">
-						<? var_dump($Error->$getter()); ?>
-					</div>
-					<? endif; ?>
-					<? endif; ?>
+					<tr class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
+						<td class="field">
+							<? echo $this->localize($field); ?>
+						</td>
+						<td>
+							<? $getter = 'get' . $field; ?>
+							<? if ($field != 'Details' && $field != 'Trace'): ?>
+							<? echo $this->localize($Error->$getter()); ?>
+							<? else: ?>
+							<? if ($field != 'Trace'): ?>
+							<? print_r($Error->$getter()); ?>
+							<? else: ?>
+							<div class="highlight">
+								<? var_dump($Error->$getter()); ?>
+							</div>
+							<? endif; ?>
+							<? endif; ?>
 
-				</dd>
+						</td>
+					</tr>
 <? endforeach; ?>
-			</dl>
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>

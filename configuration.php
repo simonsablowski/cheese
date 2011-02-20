@@ -15,7 +15,8 @@ $configuration['includeDirectories'] = array(
 $configuration['Database'] = array(
 	'type' => 'MySql',
 	'host' => 'localhost',
-	'name' => 'cheese',
+	// 'name' => 'cheese',
+	'name' => 'motivado_api',
 	'user' => 'root',
 	'password' => ''
 );
@@ -29,7 +30,8 @@ $configuration['Localization'] = array(
 );
 
 $configuration['Request'] = array(
-	'defaultQuery' => 'Food/index',
+	// 'defaultQuery' => 'Food/index',
+	'defaultQuery' => 'Object/index',
 	'aliasQueries' => array()
 );
 

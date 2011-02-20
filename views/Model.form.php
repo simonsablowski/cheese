@@ -5,26 +5,32 @@
 			</h1>
 			<form action="<? echo sprintf('%s/%s', $ObjectName, $mode != 'update' ? $mode : sprintf('%s/%d', $mode, $Object->getId())); ?>" method="post">
 				<fieldset>
-					<dl class="content">
-						<dt class="head">
-							<? echo $this->localize('Field'); ?>
-						</dt>
-						<dd class="head">
-							<? echo $this->localize('Value'); ?>
-						</dd>
+					<table class="content">
+						<thead class="head">
+							<tr>
+								<th class="field">
+									<? echo $this->localize('Field'); ?>
+								</th>
+								<th>
+									<? echo $this->localize('Field'); ?>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="body">
 <? foreach ($Fields as $n => $Field): ?>
-						<dt class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
-							<? echo $this->localize($Field->getLabel()); ?>
+							<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
+								<td class="field">
+									<? echo $this->localize($Field->getLabel()); ?>
 
-						</dt>
-						<dd class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
+								</td>
+								<td>
 <? if ($Field instanceof TextField): ?>
-<?/* if (is_null($Field->getLength()) || $Field->getLength() > 255): ?>
+<? if (is_null($Field->getLength()) || $Field->getLength() > 255): ?>
 							<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
-<? else: */?>
-							<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;" maxlength="<? echo $Field->getLength(); ?>"/>
-<?/* endif; */?>
-<? else: if ($Field instanceof OptionsField): ?>
+<? else: ?>
+							<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;" maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"/>
+<? endif; ?>
+<? elseif ($Field instanceof OptionsField): ?>
 <? if (count($Field->getOptions()) > 2): ?>
 							<select name="<? echo $Field->getName(); ?>">
 <? foreach ($Field->getOptions() as $m => $Option): ?>
@@ -43,17 +49,24 @@
 <? endforeach; ?>
 							</div>
 <? endif; ?>
+<? elseif ($Field instanceof JsonEncodedField): ?>
+							<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
 <? endif; ?>
-<? endif; ?>
-						</dd>
+								</td>
+							</tr>
 <? endforeach; ?>
-						<dt class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
-							&nbsp;
-						</dt>
-						<dd class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
-							<input type="submit" name="submit" value="<? echo $this->localize('Submit'); ?>"/>
-						</dd>
-					</dl>
+						</tbody>
+						<tfoot>
+							<tr class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
+								<td>
+									&nbsp;
+								</td>
+								<td>
+									<input type="submit" name="submit" value="<? echo $this->localize('Submit'); ?>"/>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
 				</fieldset>
 			</form>
 <? $this->displayView('components/footer.php'); ?>

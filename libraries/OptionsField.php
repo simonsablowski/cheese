@@ -1,8 +1,6 @@
 <?php
 
 class OptionsField extends Field {
-	protected $name = NULL;
-	protected $label = NULL;
 	protected $Options = NULL;
 	
 	public function __construct($name, $label, $Options = NULL) {
