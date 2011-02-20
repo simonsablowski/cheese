@@ -2,16 +2,14 @@
 
 $configuration = array();
 
-$configuration['pathMother'] = 'D:/Webprojekte/nacho/';
-
 $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
 $configuration['basePath'] = 'http://localhost/cheese/web/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],
-	$configuration['pathMother'] . 'application/',
-	$configuration['pathMother'] . 'core/'
+	'D:/Webprojekte/motivado/api/',
+	'D:/Webprojekte/nacho/'
 );
 
 $configuration['Database'] = array(
@@ -23,8 +21,11 @@ $configuration['Database'] = array(
 );
 
 $configuration['Localization'] = array(
-	'language' => 'de_DE',
-	'locale' => 'de_DE'
+	'default' => 'de_DE',
+	'de_DE' => array(
+		'language' => 'de_DE',
+		'locale' => 'de_DE'
+	)
 );
 
 $configuration['Request'] = array(

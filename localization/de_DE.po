@@ -20,6 +20,12 @@ msgstr "Titel"
 msgid "Status"
 msgstr "Status"
 
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Modified"
+msgstr "Geändert"
+
 msgid "active"
 msgstr "aktiv"
 
@@ -81,8 +87,3 @@ msgstr "Details"
 
 msgid "Trace"
 msgstr "Spur"
-
-# Food
-
-msgid "Food"
-msgstr "Essen"
