@@ -135,9 +135,11 @@ body {
 }
 
 #message {
+	position: relative;
 	background-color: #f6f6f6;
 	border: 1px solid #ccc;
 	font-weight: bold;
-	margin: 36px 0;
+	margin: 36px auto;
 	padding: 12px 12px 18px;
+	width: 974px;
 }

@@ -4,7 +4,7 @@ $configuration = array();
 
 $configuration['pathApplication'] = dirname(__FILE__) . '/';
 
-$configuration['basePath'] = 'http://localhost/cheese/web/';
+$configuration['basePath'] = 'http://localhost/cheese/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],

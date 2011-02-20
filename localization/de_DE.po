@@ -12,10 +12,28 @@ msgstr "Ändern"
 msgid "Delete"
 msgstr "Löschen"
 
+msgid "Field"
+msgstr "Feld"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Submit"
+msgstr "Absenden"
+
 # Fields
 
 msgid "Title"
 msgstr "Titel"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Key"
+msgstr "Schlüssel"
+
+msgid "Properties"
+msgstr "Eigenschaften"
 
 msgid "Status"
 msgstr "Status"
@@ -34,15 +52,6 @@ msgstr "Aktiv"
 
 msgid "Deleted"
 msgstr "Gelöscht"
-
-msgid "Field"
-msgstr "Feld"
-
-msgid "Value"
-msgstr "Wert"
-
-msgid "Submit"
-msgstr "Absenden"
 
 # Error
 

@@ -5,12 +5,12 @@
 		<meta http-equiv="Content-Language" content="en"/>
 		<title>Nachos with Cheese</title>
 		<base href="<? echo $this->getConfiguration('basePath'); ?>"/>
-		<link href="css/style.css" rel="stylesheet" title="Default" type="text/css" />
+		<link href="web/css/style.css" rel="stylesheet" title="Default" type="text/css" />
 	</head>
 	<body>
-		<div id="document">
 <? if (isset($message) && !empty($message)): ?>
 			<div id="message">
 				<? echo $this->localize($message); ?>
 			</div>
 <? endif; ?>
+		<div id="document">
