@@ -37,7 +37,7 @@
 <? if ($Field instanceof OptionsField): ?>
 							<? echo $this->localize($Object->getData($Field->getName())); ?>
 <? elseif ($Field instanceof ObjectField): ?>
-							<? try { $getObjectName = $Field->getGetObjectName(); echo $Object->$getObjectName()->getData($Field->getTitleField()); } catch (Exception $Error) { echo ''; } ?>
+							<? try { $getObjectName = $Field->getGetObjectName(); echo $Object->$getObjectName() ? $Object->$getObjectName()->getData($Field->getTitleField()) : ''; } catch (Exception $Error) { echo ''; } ?>
 <? elseif ($Field instanceof JsonEncodedField): ?>
 <? $this->displayView('components/StdObject.php', array(
 	'StdObject' => $Field->decode($Object->getData($Field->getName())),
