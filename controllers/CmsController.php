@@ -29,9 +29,10 @@ abstract class CmsController extends Controller {
 		return $ObjectName::findAll();
 	}
 	
-	protected function findObject($id) {
+	protected function findObject($primaryKeyValue) {
 		$ObjectName = $this->getObjectName();
-		return $ObjectName::find($id);
+		$primaryKey = is_array($ObjectName::getPrimaryKey()) ? $ObjectName::getPrimaryKey() : array($ObjectName::getPrimaryKey());
+		return $ObjectName::find(array_combine($primaryKey, $primaryKeyValue));
 	}
 	
 	public function index() {
@@ -61,8 +62,8 @@ abstract class CmsController extends Controller {
 		));
 	}
 	
-	public function update($id) {
-		$Object = $this->findObject($id);
+	public function update() {
+		$Object = $this->findObject(func_get_args());
 		
 		if ($this->getRequest()->isSubmitted()) {
 			$validFields = array_keys($Object->getData());
@@ -85,8 +86,8 @@ abstract class CmsController extends Controller {
 		));
 	}
 	
-	public function delete($id) {
-		$Object = $this->findObject($id);
+	public function delete() {
+		$Object = $this->findObject(func_get_args());
 		
 		$Object->delete();
 		

@@ -36,6 +36,8 @@
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>data">
 <? if ($Field instanceof OptionsField): ?>
 							<? echo $this->localize($Object->getData($Field->getName())); ?>
+<? elseif ($Field instanceof ObjectField): ?>
+							<? try { $getObjectName = $Field->getGetObjectName(); echo $Object->$getObjectName()->getData($Field->getTitleField()); } catch (Exception $Error) { echo ''; } ?>
 <? elseif ($Field instanceof JsonEncodedField): ?>
 <? $this->displayView('components/StdObject.php', array(
 	'StdObject' => $Field->decode($Object->getData($Field->getName())),
@@ -48,10 +50,10 @@
 						</td>
 <? endforeach; ?>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="<? echo $ObjectName; ?>/update/<? echo $Object->getId(); ?>" title="<? echo $this->localize('Update'); ?>"><? echo $this->localize('Update'); ?></a>
+							<a href="<? echo $ObjectName; ?>/update/<? echo implode('/', $Object->getPrimaryKeyValue()); ?>" title="<? echo $this->localize('Update'); ?>"><? echo $this->localize('Update'); ?></a>
 						</td>
 						<td class="<? if ($n + 1 == count($Objects)) echo 'last '; ?>option">
-							<a href="<? echo $ObjectName; ?>/delete/<? echo $Object->getId(); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
+							<a href="<? echo $ObjectName; ?>/delete/<? echo implode('/', $Object->getPrimaryKeyValue()); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
 						</td>
 					</tr>
 <? endforeach; ?>
