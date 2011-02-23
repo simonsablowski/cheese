@@ -1,6 +1,6 @@
 <?php
 
-class FoodController extends CmsController {
+class FoodController extends Controller {
 	public function getFields() {
 		$Fields = array();
 		

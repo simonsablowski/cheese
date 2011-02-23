@@ -1,18 +1,40 @@
 <?php
 
-abstract class CmsController extends Controller {
+abstract class Controller extends Application {
 	protected $MessageHandler = NULL;
 	
-	abstract public function getFields();
-	
-	protected function setupMessageHandler() {
-		$this->setMessageHandler(new MessageHandler);
-		$this->getMessageHandler()->setSession($this->getSession());
+	public function __construct() {
+		
 	}
+	
+	protected function performAction($actionName, $parameters) {
+		if (!$this->hasMethod($actionName) || !$this->getMethod($actionName)->isPublic()) {
+			throw new FatalError('Invalid action', array('Controller' => $this->getClassName(), 'Action' => $actionName, 'Parameters' => $parameters));
+		}
+		
+		if (count($this->getMethod($actionName)->getParameters()) > count($parameters)) {
+			throw new FatalError('Missing parameters', array('Controller' => $this->getClassName(), 'Action' => $actionName, 'Parameters' => $parameters));
+		}
+		
+		if ($this->hasMethod('autoload')) {
+			spl_autoload_register(array($this, 'autoload'));
+		}
+		
+		call_user_func_array(array($this, $actionName), $parameters);
+		
+		$this->getOutputBuffer()->flush();
+	}
+	
+	abstract public function getFields();
 	
 	protected function redirect($path = NULL) {
 		if (is_null($path)) $path = sprintf('%s/index', $this->getObjectName());
 		header(sprintf('Location: %s%s', $this->getConfiguration('basePath'), $path));
+	}
+	
+	protected function setupMessageHandler() {
+		$this->setMessageHandler(new MessageHandler);
+		$this->getMessageHandler()->setSession($this->getSession());
 	}
 	
 	protected function getMessageHandler() {

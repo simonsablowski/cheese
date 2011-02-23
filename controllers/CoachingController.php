@@ -1,16 +1,16 @@
 <?php
 
-class ObjectTransitionController extends Controller {
+class CoachingController extends Controller {
 	public function getFields() {
 		$Fields = array();
 		
-		$Fields[] = new ObjectField('CoachingId', 'Coaching');
+		$Fields[] = new TextField('key', 'Key', 20);
 		
-		$Fields[] = new ObjectField('LeftId', 'Left Object', 'Object');
+		$Fields[] = new TextField('language', 'Language', 5);
 		
-		$Fields[] = new ObjectField('RightId', 'Right Object', 'Object');
+		$Fields[] = new TextField('title', 'Title', 255);
 		
-		$Fields[] = new TextField('condition', 'Condition', 255);
+		$Fields[] = new TextField('description', 'Description');
 		
 		$Fields[] = new OptionsField('status', 'Status', array(
 			new Option('active', 'Active', TRUE),

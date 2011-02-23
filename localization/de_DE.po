@@ -32,8 +32,23 @@ msgstr "Beschreibung"
 msgid "Key"
 msgstr "Schlüssel"
 
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Coaching"
+msgstr "Coaching"
+
 msgid "Properties"
 msgstr "Eigenschaften"
+
+msgid "Left Object"
+msgstr "Linkes Objekt"
+
+msgid "Right Object"
+msgstr "Rechtes Objekt"
+
+msgid "Condition"
+msgstr "Bedingung"
 
 msgid "Status"
 msgstr "Status"

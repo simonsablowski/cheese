@@ -1,6 +1,6 @@
 <?php
 
-class ObjectController extends CmsController {
+class ObjectController extends Controller {
 	public function getFields() {
 		$Fields = array();
 		
