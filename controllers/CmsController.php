@@ -5,7 +5,7 @@ abstract class CmsController extends Controller {
 	
 	abstract public function getFields();
 	
-	protected function initializeMessageHandler() {
+	protected function setupMessageHandler() {
 		$this->setMessageHandler(new MessageHandler);
 		$this->getMessageHandler()->setSession($this->getSession());
 	}
@@ -16,7 +16,7 @@ abstract class CmsController extends Controller {
 	}
 	
 	protected function getMessageHandler() {
-		if (is_null($this->MessageHandler)) $this->initializeMessageHandler();
+		if (is_null($this->MessageHandler)) $this->setupMessageHandler();
 		return $this->MessageHandler;
 	}
 	
