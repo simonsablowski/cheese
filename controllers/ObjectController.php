@@ -8,11 +8,11 @@ class ObjectController extends Controller {
 		
 		$Fields[] = new TextField('key', 'Key', 50);
 		
-		$Fields[] = new JsonEncodedField('properties', 'Properties');
-		
 		$Fields[] = new TextField('title', 'Title', 255);
 		
-		$Fields[] = new TextField('description', 'Description');
+		// $Fields[] = new TextField('description', 'Description');
+		
+		$Fields[] = new JsonEncodedField('properties', 'Properties');
 		
 		$Fields[] = new OptionsField('status', 'Status', array(
 			new Option('active', 'Active', TRUE),

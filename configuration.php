@@ -8,15 +8,15 @@ $configuration['basePath'] = 'http://localhost/cheese/';
 
 $configuration['includeDirectories'] = array(
 	$configuration['pathApplication'],
-	'D:/Webprojekte/motivado/api/',
-	'D:/Webprojekte/nacho/'
+	'D:/Entwicklung/api/',
+	'D:/Entwicklung/nacho/'
 );
 
 $configuration['Database'] = array(
 	'type' => 'MySql',
 	'host' => 'localhost',
 	// 'name' => 'cheese',
-	'name' => 'motivado_api',
+	'name' => 'motivado_importer',
 	'user' => 'root',
 	'password' => ''
 );
