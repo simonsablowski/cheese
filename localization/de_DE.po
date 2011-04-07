@@ -32,6 +32,9 @@ msgstr "Beschreibung"
 msgid "Key"
 msgstr "Schlüssel"
 
+msgid "Parent"
+msgstr "Vorgänger"
+
 msgid "Language"
 msgstr "Sprache"
 

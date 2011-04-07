@@ -26,12 +26,8 @@
 
 								</td>
 								<td>
-<? if ($Field instanceof TextField): ?>
-<? if (is_null($Field->getLength()) || $Field->getLength() > 255): ?>
+<? if ($Field instanceof TextField && (is_null($Field->getLength()) || $Field->getLength() > 255)): ?>
 									<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
-<? else: ?>
-									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;" maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"/>
-<? endif; ?>
 <? elseif ($Field instanceof OptionsField): ?>
 <? if (count($Field->getOptions()) > 2): ?>
 									<select name="<? echo $Field->getName(); ?>">
@@ -61,6 +57,8 @@
 									</select>
 <? elseif ($Field instanceof JsonEncodedField): ?>
 									<textarea name="<? echo $Field->getName(); ?>" style="width: 75%;"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
+<? else: ?>
+									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>" style="width: 75%;"<?/* maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"*/?>/>
 <? endif; ?>
 								</td>
 							</tr>
