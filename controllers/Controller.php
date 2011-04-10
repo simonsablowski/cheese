@@ -57,8 +57,16 @@ abstract class Controller extends Application {
 		return $ObjectName::find(array_combine($primaryKey, $primaryKeyValue));
 	}
 	
+	protected function getViewFile($function) {
+		if (!$this->isView($view = sprintf('%s.%s.php', $this->getObjectName(), $function))) {
+			$view = sprintf('Model.%s.php', $function);
+		}
+		
+		return $view;
+	}
+	
 	public function index() {
-		$this->displayView('Model.index.php', array(
+		$this->displayView($this->getViewFile('index'), array(
 			'message' => $this->getMessageHandler()->getMessage(),
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
@@ -77,7 +85,7 @@ abstract class Controller extends Application {
 			return $this->redirect();
 		}
 		
-		$this->displayView('Model.form.php', array(
+		$this->displayView($this->getViewFile('form'), array(
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'mode' => 'create'
@@ -100,7 +108,7 @@ abstract class Controller extends Application {
 			return $this->redirect();
 		}
 		
-		$this->displayView('Model.form.php', array(
+		$this->displayView($this->getViewFile('form'), array(
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'Object' => $Object,

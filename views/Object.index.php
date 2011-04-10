@@ -1,3 +1,9 @@
+<?php
+$Coachings = array();
+foreach ($Objects as $Object) {
+	$Coachings[$Object->getCoachingId()] = $Object->getCoaching();
+}
+?>
 <? $this->displayView('components/header.php'); ?>
 			<h1>
 				<a href="<? echo $ObjectName; ?>/index" title="<? echo $this->localize($ObjectName); ?>"><? echo $this->localize($ObjectName); ?></a>
@@ -11,12 +17,26 @@
 						<td class="number">
 							&nbsp;
 						</td>
-<? foreach ($Fields as $n => $Field): ?>
 						<th>
-							<? echo $this->localize($Field->getLabel()); ?>
+							<? echo $this->localize('Type'); ?>
 
 						</th>
-<? endforeach; ?>
+						<th>
+							<? echo $this->localize('Key'); ?>
+
+						</th>
+						<th class="main">
+							<? echo $this->localize('Title'); ?>
+
+						</th>
+						<th class="main">
+							<? echo $this->localize('Properties'); ?>
+
+						</th>
+						<th>
+							<? echo $this->localize('Status'); ?>
+
+						</th>
 						<th class="option">
 							&nbsp;
 						</th>
@@ -25,30 +45,41 @@
 						</th>
 					</tr>
 				</thead>
-				<tbody class="body">
-<? foreach ($Objects as $n => $Object): ?>
-					<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
+				<tbody class="body accordeon">
+<? foreach ($Coachings as $Coaching): ?>
+					<tr id="group<? echo $Coaching->getId(); ?>" class="divider row">
+						<td class="field data" colspan="8">
+							<? echo $Coaching->getKey(); ?> <em>(<? echo $this->localize('%d objects', count($Coaching->getObjects())); ?>)</em>
+						</td>
+					</tr>
+<? foreach ($Coaching->getObjects() as $n => $Object): ?>
+					<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?> group<? echo $Coaching->getId(); ?> row">
 						<td class="<? if ($n + 1 == count($Objects)): ?>last <? endif; ?>number">
 							<? echo $n + 1; ?>
 
 						</td>
-<? foreach ($Fields as $n => $Field): ?>
-						<td class="<? if ($n + 1 == count($Objects)): ?>last <? endif; ?>data">
-<? if ($Field instanceof OptionsField): ?>
-							<? echo $this->localize($Object->getData($Field->getName())); ?>
-<? elseif ($Field instanceof ObjectField): ?>
-							<? try { $getObjectName = $Field->getGetObjectName(); echo $Object->$getObjectName() ? $Object->$getObjectName()->getData($Field->getTitleField()) : ''; } catch (Exception $Error) { echo ''; } ?>
-<? elseif ($Field instanceof JsonEncodedField): ?>
-<? $this->displayView('components/StdObject.php', array(
-	'StdObject' => $Field->decode($Object->getData($Field->getName())),
-	'indent' => 7
-)); ?>
-<? else: ?>
-							<? echo $Object->getData($Field->getName()); ?>
-<? endif; ?>
+						<td class="field data">
+							<? echo $Object->getType(); ?>
 
 						</td>
-<? endforeach; ?>
+						<td class="field data">
+							<? echo $Object->getKey(); ?>
+
+						</td>
+						<td class="main">
+							<? echo $Object->getTitle(); ?>
+
+						</td>
+						<td class="main">
+<? $this->displayView('components/StdObject.php', array(
+	'StdObject' => Json::decode($Object->getProperties()),
+	'indent' => 7
+)); ?>
+						</td>
+						<td class="last">
+							<? echo $this->localize($Object->getStatus()); ?>
+
+						</td>
 						<td class="<? if ($n + 1 == count($Objects)): ?>last <? endif; ?>option">
 							<a href="<? echo $ObjectName; ?>/update/<? echo implode('/', $Object->getPrimaryKeyValue()); ?>" title="<? echo $this->localize('Update'); ?>"><? echo $this->localize('Update'); ?></a>
 						</td>
@@ -56,6 +87,7 @@
 							<a href="<? echo $ObjectName; ?>/delete/<? echo implode('/', $Object->getPrimaryKeyValue()); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
 						</td>
 					</tr>
+<? endforeach; ?>
 <? endforeach; ?>
 				</tbody>
 			</table>

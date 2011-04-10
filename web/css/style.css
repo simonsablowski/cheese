@@ -119,6 +119,10 @@ body {
 	background-color: #f6f6f6;
 }
 
+#document .content .divider {
+	border: 1px solid #ccc;
+}
+
 #document .content .wide {
 	width: 85%;
 }
@@ -127,15 +131,16 @@ body {
 	width: 40%;
 }
 
-#document .content .expand, #document .content .collapse {
-	background: no-repeat 5px 8px;
+#document .content .collapsed, #document .content .expanded {
+	background-repeat: no-repeat;
+	background-position: 5px 8px;
 }
 
-#document .content .expand {
+#document .content .collapsed {
 	background-image: url('../img/expand.gif');
 }
 
-#document .content .collapse {
+#document .content .expanded {
 	background-image: url('../img/collapse.gif');
 }
 
@@ -180,6 +185,10 @@ body {
 #document .content .decoded  th, #document .content .decoded  td {
 	font-weight: normal;
 	padding: 0 9px;
+}
+
+#document .content .foot {
+	background-color: #f0f0f0;
 }
 
 #message {
