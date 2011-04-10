@@ -67,7 +67,13 @@ body {
 
 #document .content input, #document .content select, #document .content textarea {
 	border: 1px solid #ccc;
+	padding: 3px 6px 6px;
+	width: 95%;
+}
+
+#document .content .radio, #document .content .checkbox, #document .content .submit {
 	padding: 0;
+	width: auto;
 }
 
 #document .content .checkbox, #document .content label, #document .content .submit {
@@ -77,7 +83,6 @@ body {
 #document .content .submit {
 	float: right;
 	margin-right: 24px;
-	padding: 3px 6px 6px;
 }
 
 #document .content .checkbox {
