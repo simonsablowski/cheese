@@ -58,19 +58,19 @@ foreach ($Objects as $Object) {
 							<? echo $n + 1; ?>
 
 						</td>
-						<td class="field data">
+						<td class="data field">
 							<? echo $Object->getType(); ?>
 
 						</td>
-						<td class="field data">
+						<td class="data field">
 							<? echo $Object->getKey(); ?>
 
 						</td>
-						<td class="main">
-							<? echo $Object->getTitle(); ?>
+						<td class="main field">
+							<? if ($title = $Object->getTitle()): ?><? echo $title; ?><? else: ?><? echo $Object->getDescription(); ?><? endif; ?>
 
 						</td>
-						<td class="main">
+						<td class="main field">
 <? $this->displayView('components/StdObject.php', array(
 	'StdObject' => Json::decode($Object->getProperties()),
 	'indent' => 7
