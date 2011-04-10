@@ -64,8 +64,8 @@
 							</tr>
 <? endforeach; ?>
 						</tbody>
-						<tfoot>
-							<tr class="last <? echo $n % 2 ? 'even' : 'odd'; ?>">
+						<tfoot class="foot">
+							<tr class="last">
 								<td>
 									&nbsp;
 								</td>

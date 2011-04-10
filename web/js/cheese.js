@@ -1,4 +1,13 @@
-$(function() {
+$(document).ready(function() {
+	$('a').filter(function() {
+		return this.hostname && this.hostname !== location.hostname;
+	}).addClass('external').click(function(e) {
+		open(this.href);
+		e.preventDefault();
+	});
+	
+	$('#message').fadeOut(5000);
+	
 	$('.check-all')
 		.click(function() {
 			$('input[type="checkbox"]').attr('checked', $(this).is(':checked'));
