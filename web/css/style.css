@@ -208,7 +208,8 @@ body {
 	background-color: #f6f6f6;
 	border: 1px solid #ccc;
 	font-weight: bold;
-	margin: 12px 324px 0;
-	padding: 12px 12px 18px;
+	height: 17px;
+	margin: 18px 324px;
+	padding: 12px 12px 15px;
 	top: 0;
 }
