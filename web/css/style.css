@@ -165,7 +165,10 @@ body {
 }
 
 #document .content .options .option {
+	background-color: transparent;
+	border: 0 none;
 	float: left;
+	margin-left: 0;
 	padding: 6px 6px 9px;
 	width: 90px;
 }
