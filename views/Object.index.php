@@ -49,7 +49,7 @@ foreach ($Objects as $Object) {
 <? foreach ($Coachings as $Coaching): ?>
 					<tr id="group<? echo $Coaching->getId(); ?>" class="divider row">
 						<td class="field data" colspan="8">
-							<? echo $Coaching->getKey(); ?> <em>(<? echo $this->localize('%d objects', count($Coaching->getObjects())); ?>)</em>
+							<? echo $Coaching->getKey(); ?> <em>(<? echo $this->localize('%d ' . (($count = count($Coaching->getObjects())) == 1 ? $this->localize('object') : $this->localize('objects')), $count); ?>)</em>
 						</td>
 					</tr>
 <? foreach ($Coaching->getObjects() as $n => $Object): ?>

@@ -114,3 +114,11 @@ msgstr "Details"
 
 msgid "Trace"
 msgstr "Spur"
+
+msgid "%d objects"
+msgstr "%d Objekte"
+
+# Importer
+
+msgid "%d object"
+msgstr "%d Objekt"
