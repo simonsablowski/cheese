@@ -7,6 +7,10 @@ abstract class Controller extends Application {
 		
 	}
 	
+	protected function getActionKey($actionName) {
+		return sprintf('%s.%s', $this->getObjectName(), $actionName);
+	}
+	
 	protected function performAction($actionName, $parameters) {
 		if (!$this->hasMethod($actionName) || !$this->getMethod($actionName)->isPublic()) {
 			throw new FatalError('Invalid action', array('Controller' => $this->getClassName(), 'Action' => $actionName, 'Parameters' => $parameters));
@@ -27,9 +31,19 @@ abstract class Controller extends Application {
 	
 	abstract public function getFields();
 	
+	public function link($path = NULL) {
+		return $this->getConfiguration('basePath') . $path;
+	}
+	
 	protected function redirect($path = NULL) {
 		if (is_null($path)) $path = sprintf('%s/index', $this->getObjectName());
-		header(sprintf('Location: %s%s', $this->getConfiguration('basePath'), $path));
+		header(sprintf('Location: %s', $this->link($path)));
+	}
+	
+	protected function displayView($view, $variables = array()) {
+		parent::displayView($view, array_merge(array(
+			'message' => $this->getMessageHandler()->getMessage()
+		), $variables));
 	}
 	
 	protected function setupMessageHandler() {
@@ -57,9 +71,9 @@ abstract class Controller extends Application {
 		return $ObjectName::find(array_combine($primaryKey, $primaryKeyValue));
 	}
 	
-	protected function getViewFile($function) {
-		if (!$this->isView($view = sprintf('%s.%s.php', $this->getObjectName(), $function))) {
-			$view = sprintf('Model.%s.php', $function);
+	protected function getViewFile($actionName) {
+		if (!$this->isView($view = sprintf('%s.php', $this->getActionKey($actionName)))) {
+			$view = sprintf('Model.%s.php', $actionName);
 		}
 		
 		return $view;
@@ -67,7 +81,6 @@ abstract class Controller extends Application {
 	
 	public function index() {
 		$this->displayView($this->getViewFile('index'), array(
-			'message' => $this->getMessageHandler()->getMessage(),
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'Objects' => $this->findObjects()
