@@ -11,6 +11,13 @@ class Request extends Application {
 	}
 	
 	protected function getAlias($query) {
+		if (is_null($this->getConfiguration())) {
+			throw new FatalError('Request configuration undefined');
+		}
+		if (is_null($this->getConfiguration('aliasQueries'))) {
+			throw new FatalError('Alias queries undefined', $this->getConfiguration());
+		}
+		
 		foreach ($this->getConfiguration('aliasQueries') as $pattern => $replacement) {
 			$alias = preg_replace(sprintf('/^%s$/i', $pattern), $replacement, $query, -1, $replaced);
 			if ($replaced) return $alias;
