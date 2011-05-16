@@ -136,6 +136,11 @@ body {
 	width: 85%;
 }
 
+#document .content .right {
+	padding: 6px 24px 9px;
+	text-align: right;
+}
+
 #document .content .main {
 	width: 40%;
 }
