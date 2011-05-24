@@ -41,7 +41,7 @@ abstract class Controller extends Application {
 	}
 	
 	protected function displayView($view, $variables = array()) {
-		parent::displayView($view, array_merge(array(
+		return parent::displayView($view, array_merge(array(
 			'message' => $this->getMessageHandler()->getMessage()
 		), $variables));
 	}
@@ -80,7 +80,7 @@ abstract class Controller extends Application {
 	}
 	
 	public function index() {
-		$this->displayView($this->getViewFile('index'), array(
+		return $this->displayView($this->getViewFile('index'), array(
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'Objects' => $this->findObjects()
@@ -98,7 +98,7 @@ abstract class Controller extends Application {
 			return $this->redirect();
 		}
 		
-		$this->displayView($this->getViewFile('form'), array(
+		return $this->displayView($this->getViewFile('form'), array(
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'mode' => 'create'
@@ -121,7 +121,7 @@ abstract class Controller extends Application {
 			return $this->redirect();
 		}
 		
-		$this->displayView($this->getViewFile('form'), array(
+		return $this->displayView($this->getViewFile('form'), array(
 			'Fields' => $this->getFields(),
 			'ObjectName' => $this->getObjectName(),
 			'Object' => $Object,
