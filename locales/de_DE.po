@@ -38,21 +38,6 @@ msgstr "Vorgänger"
 msgid "Language"
 msgstr "Sprache"
 
-msgid "Coaching"
-msgstr "Coaching"
-
-msgid "Properties"
-msgstr "Eigenschaften"
-
-msgid "Left Object"
-msgstr "Linkes Objekt"
-
-msgid "Right Object"
-msgstr "Rechtes Objekt"
-
-msgid "Condition"
-msgstr "Bedingung"
-
 msgid "Status"
 msgstr "Status"
 
@@ -114,11 +99,3 @@ msgstr "Details"
 
 msgid "Trace"
 msgstr "Spur"
-
-msgid "%d objects"
-msgstr "%d Objekte"
-
-# Importer
-
-msgid "%d object"
-msgstr "%d Objekt"
