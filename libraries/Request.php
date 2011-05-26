@@ -48,10 +48,12 @@ class Request extends Application {
 	}
 	
 	public function getData($field = NULL) {
+		$request = array_merge($_GET, $_POST, $_SERVER);
+		
 		if (is_null($field)) {
-			return $this->escape($_REQUEST);
-		} else if (isset($_REQUEST[$field])) {
-			return $this->escape($_REQUEST[$field]);
+			return $this->escape($request);
+		} else if (isset($request[$field])) {
+			return $this->escape($request[$field]);
 		} else {
 			return NULL;
 		}
