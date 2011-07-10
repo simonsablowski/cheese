@@ -32,11 +32,11 @@ abstract class Controller extends Application {
 	abstract public function getFields();
 	
 	public function link($path = NULL) {
-		return $this->getConfiguration('basePath') . $path;
+		return $this->getConfiguration('baseUrl') . $path;
 	}
 	
 	protected function redirect($path = NULL) {
-		if (is_null($path)) $path = sprintf('%s%s/index', $this->getConfiguration('baseUrl'), $this->getObjectName());
+		if (is_null($path)) $path = sprintf('%s/index', $this->getObjectName());
 		header(sprintf('Location: %s', $this->link($path)));
 	}
 	

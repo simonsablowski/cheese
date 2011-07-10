@@ -1,9 +1,9 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<a href="<? echo $this->getConfiguration('baseUrl') . $ObjectName; ?>/index" title="<? echo $ObjectName; ?>"><? echo $this->localize($ObjectName); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize(ucfirst($mode)); ?>
+				<a href="<? echo $this->link($ObjectName . '/index'); ?>" title="<? echo $ObjectName; ?>"><? echo $this->localize($ObjectName); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize(ucfirst($mode)); ?>
 
 			</h1>
-			<form action="<? echo $this->getConfiguration('baseUrl') . sprintf('%s/%s', $ObjectName, $mode != 'update' ? $mode : sprintf('%s/%s', $mode, implode('/', $Object->getPrimaryKeyValue()))); ?>" method="post">
+			<form action="<? echo $this->link($ObjectName . '/' . ($mode != 'update' ? $mode : sprintf('%s/%s', $mode, implode('/', $Object->getPrimaryKeyValue())))); ?>" method="post">
 				<fieldset>
 					<table class="content">
 						<thead class="head">
