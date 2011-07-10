@@ -36,7 +36,7 @@ abstract class Controller extends Application {
 	}
 	
 	protected function redirect($path = NULL) {
-		if (is_null($path)) $path = sprintf('%s/index', $this->getObjectName());
+		if (is_null($path)) $path = sprintf('%s%s/index', $this->getConfiguration('baseUrl'), $this->getObjectName());
 		header(sprintf('Location: %s', $this->link($path)));
 	}
 	

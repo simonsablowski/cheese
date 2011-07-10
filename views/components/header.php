@@ -10,8 +10,8 @@
 	</head>
 	<body>
 <? if (isset($message) && !empty($message)): ?>
-			<div id="message">
-				<? echo $this->localize($message); ?>
-			</div>
+		<div id="message">
+			<? echo $this->localize($message); ?>
+		</div>
 <? endif; ?>
 		<div id="document">
