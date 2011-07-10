@@ -52,13 +52,13 @@
 									<select name="<? echo $Field->getName(); ?>">
 										<option value=""></option>
 <? $modelName = $Field->getModelName(); $primaryKey = $Field->getPrimaryKey(); $titleField = $Field->getTitleField(); foreach ($modelName::findAll() as $LoadedObject): ?>
-										<option value="<? echo $LoadedObject->getData($primaryKey); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $LoadedObject->getData($primaryKey) ? ' selected="selected"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $LoadedObject->getData($primaryKey) ? ' selected="selected"' : ''); ?>><? echo $LoadedObject->getData($titleField); ?></option>
+										<option value="<? echo $LoadedObject->getData($primaryKey); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $LoadedObject->getData($primaryKey) || ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $LoadedObject->getData($primaryKey)) ? ' selected="selected"' : ''; ?>><? echo $LoadedObject->getData($titleField); ?></option>
 <? endforeach; ?>
 									</select>
 <? elseif ($Field instanceof JsonEncodedField): ?>
 									<textarea name="<? echo $Field->getName(); ?>"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
 <? else: ?>
-									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>"<?/* maxlength="<? echo !is_null($Field->getLength()) ? $Field->getLength() : ''; ?>"*/?>/>
+									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>"/>
 <? endif; ?>
 								</td>
 							</tr>
