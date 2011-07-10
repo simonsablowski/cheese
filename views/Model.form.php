@@ -32,14 +32,14 @@
 <? if (count($Field->getOptions()) > 2): ?>
 									<select name="<? echo $Field->getName(); ?>">
 <? foreach ($Field->getOptions() as $m => $Option): ?>
-										<option value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' selected="selected"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' selected="selected"' : ''); ?>><? echo $this->localize($Option->getLabel()); ?></option>
+										<option value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() || ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName()) ? ' selected="selected"' : ''; ?>><? echo $this->localize($Option->getLabel()); ?></option>
 <? endforeach; ?>
 									</select>
 <? else: ?>
 									<div class="options">
 <? foreach ($Field->getOptions() as $m => $Option): ?>
 										<div class="option">
-											<input id="<? echo ($id = $Field->getName() . $Option->getName()); ?>" class="radio" type="radio" name="<? echo $Field->getName(); ?>" value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName() ? ' checked="checked"' : ($Option->isDefault() ? ' checked="checked"' : '')); ?>/>
+											<input id="<? echo ($id = $Field->getName() . $Option->getName()); ?>" class="radio" type="radio" name="<? echo $Field->getName(); ?>" value="<? echo $Option->getName(); ?>"<? echo $this->getRequest()->getData($Field->getName()) == $Option->getName() || ($mode == 'update' && isset($Object) && $Object->getData($Field->getName()) == $Option->getName()) || $Option->isDefault() ? ' checked="checked"' : ''; ?>/>
 											<label for="<? echo $id; ?>">
 												<? echo $this->localize($Option->getLabel()); ?>
 
