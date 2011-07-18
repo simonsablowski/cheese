@@ -3,6 +3,11 @@
 				<a href="<? echo $this->link($ObjectName . '/index'); ?>" title="<? echo $ObjectName; ?>"><? echo $this->localize($ObjectName); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize(ucfirst($mode)); ?>
 
 			</h1>
+			<div class="options">
+<? if ($mode == 'update'): ?>
+				<a class="option" href="<? echo $this->link($ObjectName . '/delete/' . implode('/', $Object->getPrimaryKeyValue())); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
+			</div>
+<? endif; ?>
 			<form action="<? echo $this->link($ObjectName . '/' . ($mode != 'update' ? $mode : sprintf('%s/%s', $mode, implode('/', $Object->getPrimaryKeyValue())))); ?>" method="post">
 				<fieldset>
 					<table class="content">
