@@ -46,6 +46,10 @@ abstract class Controller extends Application {
 		), $variables));
 	}
 	
+	protected function includeComponent($component, $variables = array()) {
+		return parent::displayView(sprintf('components/%s', $component), $variables);
+	}
+	
 	protected function setupMessageHandler() {
 		$this->setMessageHandler(new MessageHandler);
 		$this->getMessageHandler()->setSession($this->getSession());
