@@ -62,6 +62,8 @@
 									</select>
 <? elseif ($Field instanceof JsonEncodedField): ?>
 									<textarea name="<? echo $Field->getName(); ?>"><? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?></textarea>
+<? elseif ($Field instanceof PasswordField): ?>
+									<input type="password" name="<? echo $Field->getName(); ?>" value=""/>
 <? else: ?>
 									<input type="text" name="<? echo $Field->getName(); ?>" value="<? echo ($value = $this->getRequest()->getData($Field->getName())) ? $value : ($mode == 'update' && isset($Object) ? $Object->getData($Field->getName()) : ''); ?>"/>
 <? endif; ?>
