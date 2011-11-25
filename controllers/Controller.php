@@ -7,6 +7,10 @@ abstract class Controller extends Application {
 		
 	}
 	
+	public function initialize() {
+		
+	}
+	
 	protected function getActionKey($actionName) {
 		return sprintf('%s.%s', $this->getObjectName(), $actionName);
 	}
