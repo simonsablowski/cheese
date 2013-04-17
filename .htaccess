@@ -1,0 +1,5 @@
+RewriteEngine on
+
+RewriteBase /cheese/web
+
+RewriteRule ^(.*)$ $1 [L]

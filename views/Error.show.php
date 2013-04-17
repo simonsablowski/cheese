@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta http-equiv="Content-Language" content="en"/>
 		<title><? echo $this->localize('Error'); ?></title>
-		<link href="<? echo $this->getApplication()->getConfiguration('cheeseUrl'); ?>web/css/style.css" rel="stylesheet" title="Default" type="text/css" />
+		<link href="<? echo $this->getApplication()->getConfiguration('cheeseUrl'); ?>css/style.css" rel="stylesheet" title="Default" type="text/css" />
 	</head>
 	<body>
 		<div id="document">
