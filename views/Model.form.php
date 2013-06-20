@@ -5,7 +5,6 @@
 			</h1>
 <? if ($mode == 'update'): ?>
 			<div class="options">
-				<a class="option" href="<? echo $this->link('Authentication/signOut'); ?>" title="<? echo $this->localize('Sign out'); ?>"><? echo $this->localize('Sign out'); ?></a>
 				<a class="option" href="<? echo $this->link($ObjectName . '/delete/' . implode('/', $Object->getPrimaryKeyValue())); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
 			</div>
 <? endif; ?>
@@ -14,17 +13,15 @@
 					<table class="content">
 						<thead class="head">
 							<tr>
-								<th class="field">
-									&nbsp;
-								</th>
-								<th>
-									&nbsp;
+								<th class="field" colspan="2">
+									<? echo $this->localize(ucfirst($mode)); ?>
+
 								</th>
 							</tr>
 						</thead>
 						<tbody class="body">
 <? foreach ($Fields as $n => $Field): ?>
-							<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
+							<tr class="even">
 								<td class="field">
 									<? echo $this->localize($Field->getLabel()); ?>
 

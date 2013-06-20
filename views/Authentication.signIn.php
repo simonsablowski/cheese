@@ -8,17 +8,15 @@
 					<table class="content">
 						<thead class="head">
 							<tr>
-								<th class="field">
-									&nbsp;
-								</th>
-								<th>
-									&nbsp;
+								<th class="field" colspan="2">
+									<? echo $this->localize('Sign In'); ?>
+
 								</th>
 							</tr>
 						</thead>
 						<tbody class="body">
 <? foreach ($Fields as $n => $Field): ?>
-							<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
+							<tr class="even">
 								<td class="field">
 									<? echo $this->localize($Field->getLabel()); ?>
 

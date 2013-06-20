@@ -19,18 +19,16 @@
 			<table class="content">
 				<thead class="head">
 					<tr>
-						<th class="field">
-							&nbsp;
-						</th>
-						<th>
-							&nbsp;
+						<th class="field" colspan="2">
+							<? echo $this->localize('Error'); ?>
+
 						</th>
 					</tr>
 				</thead>
 				<tbody class="body">
 <? $fields = array('Type', 'Message'); if ($this->getApplication()->getConfiguration('debugMode')) $fields = array_merge($fields, array('Details', 'Trace')); ?>
 <? foreach ($fields as $n => $field): ?>
-					<tr class="<? if ($n + 1 == count($fields)) echo 'last '; echo $n % 2 ? 'odd' : 'even'; ?>">
+					<tr class="<? if ($n + 1 == count($fields)) echo 'last '; ?>even">
 						<td class="field">
 							<? echo $this->localize($field); ?>
 
@@ -39,9 +37,11 @@
 <? $getter = 'get' . $field; ?>
 <? if ($field != 'Details' && $field != 'Trace'): ?>
 							<? echo $this->localize($Error->$getter()); ?>
+
 <? else: ?>
 							<div class="highlight">
 								<? var_dump($Error->$getter()); ?>
+
 							</div>
 <? endif; ?>
 

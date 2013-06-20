@@ -3,7 +3,6 @@
 				<a href="<? echo $this->link($ObjectName . '/index'); ?>" title="<? echo $this->localize($ObjectName); ?>"><? echo $this->localize($ObjectName); ?></a>
 			</h1>
 			<div class="options">
-				<a class="option" href="<? echo $this->link('Authentication/signOut'); ?>" title="<? echo $this->localize('Sign out'); ?>"><? echo $this->localize('Sign out'); ?></a>
 				<a class="option" href="<? echo $this->link($ObjectName . '/create'); ?>" title="<? echo $this->localize('Create'); ?>"><? echo $this->localize('Create'); ?></a>
 			</div>
 			<table class="content">
