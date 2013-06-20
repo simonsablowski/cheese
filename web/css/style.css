@@ -50,15 +50,15 @@ body {
 
 #document .options .option {
 	background-color: #f9f9f9;
-	border: 1px solid #f0f0f0;
+	border: 0 none;
 	float: right;
-	padding: 6px 9px 9px;
+	padding: 6px 18px 9px;
 	margin-left: 12px;
-	width: 60px;
+	width: auto;
 }
 
 #document .content {
-	border: 1px solid #ccc;
+	border: 0 none;
 	float: left;
 	margin: 18px 0;
 	padding: 0;
@@ -66,9 +66,9 @@ body {
 }
 
 #document .content input, #document .content select, #document .content textarea {
-	border: 1px solid #ccc;
-	padding: 6px;
-	width: 95%;
+	border: 0 none;
+	padding: 3px 6px;
+	width: 97%;
 }
 
 #document .content .radio, #document .content .checkbox, #document .content .submit {
@@ -86,7 +86,7 @@ body {
 #document .content .submit {
 	float: right;
 	margin-right: 24px;
-	padding: 6px 6px 9px;
+	padding: 6px 18px 9px;
 }
 
 #document .content .checkbox {
@@ -129,7 +129,8 @@ body {
 }
 
 #document .content .divider {
-	border: 1px solid #ccc;
+	background-color: #fcfcfc;
+	border: 0 none;
 }
 
 #document .content .wide {
@@ -183,7 +184,7 @@ body {
 	border: 0 none;
 	float: left;
 	margin-left: 0;
-	padding: 6px 6px 9px;
+	padding: 3px 6px;
 	width: 90px;
 }
 
@@ -195,7 +196,7 @@ body {
 
 #document .content .highlight {
 	background-color: #fff;
-	border: 1px solid #999;
+	border: 0 none;
 	padding: 6px 6px 9px;
 }
 
@@ -210,7 +211,7 @@ body {
 #message {
 	position: absolute;
 	background-color: #f6f6f6;
-	border: 1px solid #ccc;
+	border: 0 none;
 	font-weight: bold;
 	height: 17px;
 	margin: 18px 324px;
