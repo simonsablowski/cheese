@@ -18,13 +18,8 @@ class AuthenticationController extends Controller {
 			throw new FatalError('Authenticated', $this->getSession()->getData('User')->getUserName());
 		}
 		
-		if ($this->getConfiguration('basicAuthentication')) {
-			$userName = $this->getRequest()->getData('PHP_AUTH_USER');
-			$password = $this->getRequest()->getData('PHP_AUTH_PW');
-		} else {
-			$userName = $this->getRequest()->getData('userName');
-			$password = $this->getRequest()->getData('password');
-		}
+		$userName = $this->getRequest()->getData('userName');
+		$password = $this->getRequest()->getData('password');
 		
 		if ($userName && $password) {
 			try {
@@ -38,15 +33,9 @@ class AuthenticationController extends Controller {
 				throw new FatalError('Unauthorized', $userName);
 			}
 		} else {
-			if ($this->getConfiguration('basicAuthentication')) {
-				$realmName = $this->localize($this->getConfiguration('pageTitle'));
-				header(sprintf('WWW-Authenticate: Basic realm="%s"', $realmName));
-				header('HTTP/1.0 401 Authorization Required');
-			} else {
-				return $this->displayView('Authentication.signIn.php', array(
-					'Fields' => self::getFields()
-				));
-			}
+			return $this->displayView('Authentication.signIn.php', array(
+				'Fields' => self::getFields()
+			));
 		}
 	}
 	

@@ -5,6 +5,7 @@
 			</h1>
 <? if ($mode == 'update'): ?>
 			<div class="options">
+				<a class="option" href="<? echo $this->link('Authentication/signOut'); ?>" title="<? echo $this->localize('Sign out'); ?>"><? echo $this->localize('Sign out'); ?></a>
 				<a class="option" href="<? echo $this->link($ObjectName . '/delete/' . implode('/', $Object->getPrimaryKeyValue())); ?>" title="<? echo $this->localize('Delete'); ?>"><? echo $this->localize('Delete'); ?></a>
 			</div>
 <? endif; ?>
