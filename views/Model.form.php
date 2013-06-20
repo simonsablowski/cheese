@@ -15,12 +15,10 @@
 						<thead class="head">
 							<tr>
 								<th class="field">
-									<? echo $this->localize('Field'); ?>
-
+									&nbsp;
 								</th>
 								<th>
-									<? echo $this->localize('Value'); ?>
-
+									&nbsp;
 								</th>
 							</tr>
 						</thead>
