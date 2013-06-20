@@ -1,6 +1,6 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<? echo $this->localize('Authentication'); ?>
+				<a href="<? echo $this->link('Authentication/signIn'); ?>" title="<? echo $this->localize('Authentication'); ?>"><? echo $this->localize('Authentication'); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize('Sign In'); ?>
 
 			</h1>
 			<form action="<? echo $this->link('Authentication/signIn'); ?>" method="post">

@@ -1,6 +1,6 @@
 <? $this->displayView('components/header.php'); ?>
 			<h1>
-				<a href="<? echo $this->link($ObjectName . '/index'); ?>" title="<? echo $ObjectName; ?>"><? echo $this->localize($ObjectName); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize(ucfirst($mode)); ?>
+				<a href="<? echo $this->link($ObjectName . '/index'); ?>" title="<? echo $this->localize($ObjectName); ?>"><? echo $this->localize($ObjectName); ?></a>&ensp;&raquo;&ensp;<? echo $this->localize(ucfirst($mode)); ?>
 
 			</h1>
 <? if ($mode == 'update'): ?>
