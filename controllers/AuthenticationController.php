@@ -45,6 +45,12 @@ class AuthenticationController extends Controller {
 		return $this->redirect($this->getRequest()->getConfiguration('defaultQuery'));
 	}
 	
+	protected function displayView($view, $variables = array()) {
+		return parent::displayView($view, array_merge(array(
+			'isSignedIn' => $this->authenticate()
+		), $variables));
+	}
+	
 	protected function authenticate() {
 		return $this->getSession()->getData('User') instanceof User;
 	}
