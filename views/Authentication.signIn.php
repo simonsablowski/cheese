@@ -12,7 +12,7 @@
 				<? echo $this->localize('Authentication'); ?>
 
 			</h1>
-			<form action="<? echo $this->link($query); ?>" method="post">
+			<form action="<? echo $this->link('Authentication/signIn'); ?>" method="post">
 				<fieldset>
 					<table class="content">
 						<tbody class="body">

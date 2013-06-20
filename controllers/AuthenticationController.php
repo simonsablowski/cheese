@@ -33,7 +33,7 @@ class AuthenticationController extends Controller {
 					sha1($password . $this->getConfiguration('encryptionKey'))
 				)));
 				$this->getSession()->setData('User', $this->getUser());
-				return $this->redirect();
+				return $this->redirect($this->getRequest()->getConfiguration('defaultQuery'));
 			} catch(Error $Error) {
 				throw new FatalError('Unauthorized', $userName);
 			}
@@ -44,8 +44,7 @@ class AuthenticationController extends Controller {
 				header('HTTP/1.0 401 Authorization Required');
 			} else {
 				return $this->displayView('Authentication.signIn.php', array(
-					'Fields' => self::getFields(),
-					'query' => $this->getRequest()->getConfiguration('defaultQuery')
+					'Fields' => self::getFields()
 				));
 			}
 		}
@@ -54,7 +53,7 @@ class AuthenticationController extends Controller {
 	public function signOut() {
 		$this->setUser(NULL);
 		$this->getSession()->setData('User', $this->getUser());
-		return $this->redirect();
+		return $this->redirect($this->getRequest()->getConfiguration('defaultQuery'));
 	}
 	
 	protected function authenticate() {
