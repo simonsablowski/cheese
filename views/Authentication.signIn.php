@@ -6,6 +6,16 @@
 			<form action="<? echo $this->link('Authentication/signIn'); ?>" method="post">
 				<fieldset>
 					<table class="content">
+						<thead class="head">
+							<tr>
+								<th class="field">
+									&nbsp;
+								</th>
+								<th>
+									&nbsp;
+								</th>
+							</tr>
+						</thead>
 						<tbody class="body">
 <? foreach ($Fields as $n => $Field): ?>
 							<tr class="<? echo $n % 2 ? 'odd' : 'even'; ?>">
