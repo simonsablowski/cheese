@@ -88,6 +88,7 @@ body {
 }
 
 #document .content .submit {
+	background-color: #ccc;
 	float: right;
 	margin-right: 24px;
 	padding: 6px 18px 9px;
