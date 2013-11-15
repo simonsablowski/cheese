@@ -5,7 +5,7 @@
 			</h1>
 			<form action="<? echo $this->link('Authentication/signIn'); ?>" method="post">
 				<fieldset>
-					<table class="content">
+					<table class="narrow content">
 						<thead class="head">
 							<tr>
 								<th class="field" colspan="2">

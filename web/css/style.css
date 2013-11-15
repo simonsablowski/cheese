@@ -88,7 +88,7 @@ body {
 }
 
 #document .content .submit {
-	background-color: #ccc;
+	background-color: #ff0;
 	float: right;
 	margin-right: 24px;
 	padding: 6px 18px 9px;
@@ -211,6 +211,14 @@ body {
 
 #document .content .foot {
 	background-color: #f0f0f0;
+}
+
+#document .narrow {
+	width: 400px;
+}
+
+#document .narrow input, #document .narrow select, #document .narrow textarea {
+	width: 232px;
 }
 
 #message {

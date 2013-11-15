@@ -16,7 +16,7 @@
 				<? echo $this->localize('we encountered an error:'); ?>
 
 			</h2>
-			<table class="content">
+			<table class="narrow content">
 				<thead class="head">
 					<tr>
 						<th class="field" colspan="2">

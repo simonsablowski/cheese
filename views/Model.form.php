@@ -10,7 +10,7 @@
 <? endif; ?>
 			<form action="<? echo $this->link($ObjectName . '/' . ($mode != 'update' ? $mode : sprintf('%s/%s', $mode, implode('/', $Object->getPrimaryKeyValue())))); ?>" method="post">
 				<fieldset>
-					<table class="content">
+					<table class="narrow content">
 						<thead class="head">
 							<tr>
 								<th class="field" colspan="2">
